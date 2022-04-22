@@ -1,6 +1,6 @@
-const { Schema, model } = require("mongoose");
+import mongoose from "mongoose";
 
-const listingsAndReviewsSchema = new Schema(
+const listingsAndReviewsSchema = new mongoose.Schema(
   {
     listing_url: String,
     name: String,
@@ -37,9 +37,9 @@ const listingsAndReviewsSchema = new Schema(
   { collection: "listingsAndReviews" }
 );
 
-const ListingsAndReviews = model(
+const ListingsAndReviews = mongoose.model(
   "listingsAndReviews",
   listingsAndReviewsSchema
 );
 
-module.exports = ListingsAndReviews;
+export default ListingsAndReviews;

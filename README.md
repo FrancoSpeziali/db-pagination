@@ -2,27 +2,15 @@
 
 This assignment will have you building a backend service which allows the frontend to paginate through the data
 
-> Difficulty level: Beginner 🫖🍵
-
-## Keywords
-
-`mongoose`, `schemas`, `sample_airbnb`, `limit()`, `skip()`, `lean()`, `select()`, `query parameters`
-
 ## What you will be doing
 
-For this assignment you will have to:
+For this assignment you will have to;
 
 1. Complete the schema
 2. Add your route
 3. Optimise the `/listings` endpoints
 
 The client (frontend) code has mostly been written, but you may wish to style it
-
-This project assumes you've already had experience with:
-
-- Express.js
-- dotenv
-- Mongoose / MongoDB (schemas, models and `find()`, `limit()`, `skip()`, `lean()`, `select()`)
 
 ## Folder Structure
 
@@ -32,29 +20,16 @@ When you run your node server, it will automatically handle requests to serve th
 
 **There is no need to serve the client separately**
 
-## Getting Started
-
-1. run `npm run setup`
-2. run `npm run build`
-
-> Make some tea, this may take a while
-> You only need to run these commands once
-
-## Usage
-
-1. run `nodemon server.js` or `node server.js` (if you do not have nodemon installed)
-
-##### 🔥 IMPORTANT! Changing the frontend
-
-If you want to change the client, you must rebuild the static client files
-
-1. run `npm run build`
-
 ## Tasks
 
-For these tasks, you are expected to write your code in the file `server.js`
+Before starting, run the following commands to setup the npm packages for the backend and client folders
 
-## Task 1 - Loading the sample data
+```bash
+npm run setup
+npm run build
+```
+
+### Task 1 - Loading the sample data
 
 Before we can begin, we will load a sample dataset to work with.
 
@@ -78,28 +53,16 @@ After this, you should have some new databases / collections:
 
 We will be using the `sample_airbnb` database.
 
-## Task 2 - Setting up the .env file
+### Task 2 - Setting up the .env file
 
 1. Using the `.env.example` file as a template, create a `.env` file
-2. Add your database connection details to your `.env` file
-3. The key `DB_NAME` points to the name of the database you want to connect to. Use the name `sample_airbnb`. This will ensure that Mongoose will try and use the existing sample dataset you previously set up
-4. For the other keys, fill in the details as provided to you by your MongoDB service.
-5. The key `DB_HOST` is the domain of the MongoDB service you will connect to
 
-## Task 3 - Connecting your server to your database
+2. Add your database connection details to your `.env` file, filling in the details as provided to you by MongoDB
+   > Hint: The key `DB_NAME` points to the name of the database you want to connect to. Use the name `sample_airbnb`. This will ensure that Mongoose will try and use the existing sample dataset you previously set up
 
-1. Using the `mongoose.connect()` method, setup the connection to your server inside `server.js`
-2. `mongoose.connect()` returns a promise
-    - use the `then()` method to display a message saying the connection was successful
-    - use the `catch()` method to display a message saying the connection failed
-3. Check that your database can connect
+   > Hint: The key `DB_HOST` is the **domain** of your MongoDB connection string
 
-> Here is an example of you how might setup your connection string,
-> once you have destructured the properties from `process.env`
-
-> `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
-
-## Task 4 - Completing the schema
+### Task 3 - Completing the schema
 
 Most of the schema has already been written, but it still misses a few fields
 
@@ -112,7 +75,7 @@ Most of the schema has already been written, but it still misses a few fields
 
 > Hint: Some of these fields may exist as subdocuments
 
-## Task 5 - Create a listings endpoint
+### Task 4 - Create a listings endpoint
 
 We will create an endpoint to load all the airbnb listings
 
@@ -122,7 +85,7 @@ We will create an endpoint to load all the airbnb listings
    - Use `find()` to get everything from the collection
    - Return the results to the user
 
-## Task 6 - Optimising the listings endpoint with lean()
+### Task 5 - Optimising the listings endpoint with lean()
 
 We will further optimise our query
 
@@ -130,7 +93,7 @@ Under the `/listings` endpoint;
 
 1. Use `lean()` to remove all document methods, and further improve the speed
 
-## Task 6 - Optimising the listings endpoint with limit()
+### Task 6 - Optimising the listings endpoint with limit()
 
 If try to view the listings on the frontend [http://localhost:3001/listings](http://localhost:3001/listings), you will notice it will take some time for the results to arrive
 
@@ -147,7 +110,7 @@ In the `routes/listingsAndReviews.js` file, find the `/listings` endpoint;
 
 > Important! `limit()` expects a number, but each property in our `query` object is a string. You should convert this into a number before using it
 
-## Task 7 - Optimising the listings endpoint with select()
+### Task 7 - Optimising the listings endpoint with select()
 
 We will further optimise our query
 
@@ -160,7 +123,7 @@ Under the `/listings` endpoint;
    - numberOfReviews
    - price
 
-## Task 8 - Paginating the results
+### Task 8 - Paginating the results
 
 Being able to skip through our results is critical for any application which uses pagination
 
@@ -174,7 +137,7 @@ Our client will send the `skip` value as a query parameter
 
 # Bonus Tasks
 
-## Bonus Task 1 - Styling the frontend
+## Styling the frontend
 
 The frontend is severely lacking in style
 
